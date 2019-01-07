@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: items
@@ -10,6 +9,7 @@
 #  discount_percentage :integer          default(0)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  name                :string
 #
 
 require 'rails_helper'
@@ -20,6 +20,7 @@ RSpec.describe Item, type: :model do
 
     describe 'Database' do
       it { is_expected.to have_db_column(:id).of_type(:integer) }
+      it { is_expected.to have_db_column(:name).of_type(:string) }
       it { is_expected.to have_db_column(:original_price).of_type(:float).with_options(null: false) }
       it { is_expected.to have_db_column(:has_discount).of_type(:boolean) }
       it { is_expected.to have_db_column(:discount_percentage).of_type(:integer) }
