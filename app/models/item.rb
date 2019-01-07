@@ -20,4 +20,13 @@ class Item < ApplicationRecord
       original_price
     end
   end
+
+  def self.average_price
+    total = 0
+    items = Item.all
+    items.each do |item|
+      total = total + item.price
+    end
+    total = total / Item.count
+  end
 end
