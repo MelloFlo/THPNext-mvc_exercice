@@ -25,8 +25,8 @@ class Item < ApplicationRecord
     total = 0
     items = Item.all
     items.each do |item|
-      total = total + item.price
+      total += item.price
     end
-    total = total / Item.count
+    total /= Item.count
   end
 end
