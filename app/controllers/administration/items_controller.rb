@@ -17,6 +17,7 @@ module Administration
       elsif @item.discount_percentage = 0
         @item.update(has_discount: false)
       end
+      flash[:notice] = "L'item a bien été modifié"
       redirect_to administration_items_path
       # respond_to do |format|
       #  format.html { administration_item_path(params[:id]) }
