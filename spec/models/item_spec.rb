@@ -38,8 +38,13 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  # describe 'Averge Price' do
-  #   context 'average price should be exist'
-  #   it { expect(Item.average_price).to eq(true)}
-  # end
+  describe 'Averge Price' do
+    context 'when a averge is demande' do
+      it 'gives the average price with different items' do
+        FactoryBot.create(:item_without_discount, original_price: 20)
+        FactoryBot.create(:item_without_discount, original_price: 10)
+        expect(Item.average_price).to eq(15.0)
+      end
+    end
+  end
 end
