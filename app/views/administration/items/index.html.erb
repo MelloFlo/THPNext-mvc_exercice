@@ -1,6 +1,9 @@
 <% if flash[:notice] %>
 	 <div class="notice"><%= flash[:notice] %></div>
  <% end %>
+ <% if flash[:error] %>
+ 	 <div class="alert alert-danger"><%= flash[:error] %></div>
+  <% end %>
 <main class="content">
 	<div class="container-fluid p-0">
 
@@ -25,7 +28,7 @@
 							<%= form_for item, :url => administration_item_path(item.id), :html => { :method => :put} do |f|%>
 									<tr>
 										<td><%= item.original_price.round(2)%></td>
-										<td><%= f.number_field :discount_percentage %></td>
+										<td><%= f.number_field :discount_percentage, class: "form-control" %></td>
 										<td><%= item.price.round(2)%></td>
 										<td><%= f.submit "Modifier", class: "btn btn-primary"%></td>
 									</tr>
