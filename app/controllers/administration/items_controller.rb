@@ -2,30 +2,31 @@
 
 module Administration
   class ItemsController < AdministrationController
+    before_action :set_item, only: [:update]
     def index
       @items = Item.all
     end
 
     def update
-      @item = Item.find(params[:id])
-      puts @item.id
-      if params[:item][:discount_percentage].to_f > 100
-        flash[:error] = "Veuillez entrer une réduction valable"
+      if @item.update(item_params)
+        redirect_to administration_items_path, notice: "L'item a bien été modifié"
       else
-        item_params = params.require(:item).permit(:discount_percentage)
-        @item.update(item_params)
-        flash[:notice] = "L'item a bien été modifié"
+        redirect_back fallback_location: administration_items_path, alert: "Veuillez entrer une réduction valable"
       end
-      if @item.discount_percentage.positive?
-        @item.update(has_discount: true)
-      elsif @item.discount_percentage = 0
-        @item.update(has_discount: false)
-      end
-      redirect_to administration_items_path
       # respond_to do |format|
       #  format.html { administration_item_path(params[:id]) }
       #  format.js
       # end
+    end
+
+    private
+
+    def item_params
+      params.require(:item).permit(:discount_percentage)
+    end
+
+    def set_item
+      @item = Item.find(params[:id])
     end
   end
 end

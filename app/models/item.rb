@@ -14,6 +14,9 @@
 #
 
 class Item < ApplicationRecord
+  validates :discount_percentage, numericality: { only_integer: true,
+                                                  greater_than_or_equal_to: 0,
+                                                  less_than_or_equal_to: 100 }
   def price
     if has_discount
       original_price.to_f * (1 - discount_percentage.to_f / 100)
@@ -23,11 +26,10 @@ class Item < ApplicationRecord
   end
 
   def self.average_price
-    total = 0
-    items = Item.all
-    items.each do |item|
-      total += item.price
+    if count.zero?
+      nil
+    else
+      (all.inject(0.0) { |total, item| total + _total = item.price } / count).round(2)
     end
-    total /= Item.count
   end
 end
