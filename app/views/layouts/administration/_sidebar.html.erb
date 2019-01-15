@@ -14,6 +14,11 @@
           <span class="align-middle">
           	Items
           </span>
+					<% if admin_signed_in? %>
+					<span class="align-middle">
+							<%= link_to 'Log out', destroy_admin_session_path, method: :delete %>
+					</span>
+					<% end %>
         <% end %>
 			</li>
 
