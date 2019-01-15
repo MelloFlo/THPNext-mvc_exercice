@@ -3,6 +3,7 @@
 module Administration
   class ItemsController < AdministrationController
     before_action :set_item, only: [:update]
+    before_action :authenticate_admin!
     def index
       @items = Item.all
     end
