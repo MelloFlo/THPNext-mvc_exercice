@@ -49,6 +49,7 @@
         1,
         1,
         null,
+        1,
         null,
         null
       ],
@@ -95,6 +96,15 @@
         1,
         null,
         1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         null,
@@ -514,6 +524,17 @@
         null,
         null
       ],
+      "/home/florian/Documents/THPNext/mvc_exercise/config/initializers/sidekiq.rb": [
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
       "/home/florian/Documents/THPNext/mvc_exercise/config/initializers/wrap_parameters.rb": [
         null,
         null,
@@ -720,6 +741,10 @@
         1,
         null,
         null,
+        null,
+        1,
+        0,
+        null,
         null
       ],
       "/home/florian/Documents/THPNext/mvc_exercise/app/helpers/application_helper.rb": [
@@ -735,8 +760,6 @@
         1,
         1,
         1,
-        1,
-        null,
         0,
         null,
         null,
@@ -767,6 +790,7 @@
       "/home/florian/Documents/THPNext/mvc_exercise/app/controllers/administration_controller.rb": [
         null,
         null,
+        1,
         1,
         1,
         null
@@ -994,9 +1018,9 @@
         null,
         1,
         4,
-        3,
+        2,
         null,
-        1,
+        2,
         null,
         null,
         null,
@@ -1059,6 +1083,6 @@
 
       ]
     },
-    "timestamp": 1547566712
+    "timestamp": 1547650202
   }
 }
